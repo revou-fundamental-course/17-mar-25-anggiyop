@@ -4,14 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Katik - Kalkulator Matematik</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<link rel="stylesheet" href="css/style.css">
-<script src="js/script.js"></script>
 <body>
-    <h1>Welcome to Katik</h1>
-    <div class="container">
-        <div class="calculator">
+    <header>
+      <h1>Katik</h1>
+      <p>Kalkulator Matematika</p>
+    </header>
+  
+    <main>
+      <section class="intro">
+        <h2>Welcome to Katik</h2>
+        <p>Hai Sobat, Selamat datang di Katik :)<br>
+          Sebuah web apps sederhana yang berfungsi untuk menghitung nilai luas dan keliling bangun datar
+        </p>
+      </section>
+  
+      <nav class="nav-tabs">
+        <button class="active">Luas Persegi</button>
+        <button>Keliling Persegi</button>
+      </nav>
+  
+      <section class="calculator active">
+        <div class="card">
+          <h3>Luas Persegi</h3>
+          <form id="luasForm">
+            <label for="sisiLuas">Nilai Sisi:</label>
+            <input type="number" id="sisiLuas" name="sisiLuas" required min="0">
+            <button type="submit">Hitung</button>
+            <button type="button" onclick="resetForm('luasForm')" class="reset">Reset</button>
+            <div id="hasilLuas" class="hasil"></div>
+          </form>
         </div>
-    </div>
-</body>
+      </section>
+  
+      <section class="calculator">
+        <div class="card">
+          <h3>Keliling Persegi</h3>
+          <form id="kelilingForm">
+            <label for="sisiKeliling">Nilai Sisi:</label>
+            <input type="number" id="sisiKeliling" name="sisiKeliling" required min="0">
+            <button type="submit">Hitung</button>
+            <button type="button" onclick="resetForm('kelilingForm')" class="reset">Reset</button>
+            <div id="hasilKeliling" class="hasil"></div>
+          </form>
+        </div>
+      </section>
+    </main>
+  
+    <footer>
+      <p>&copy; 2025 Katik by Anggiyop</p>
+    </footer>
+  
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+  </body>  
 </html>
