@@ -300,6 +300,7 @@ body.dark-mode .nav-tabs button:hover {
 #themeToggle {
   background: none;
   border: none;
+  border-radius: 0;
   color: white;
   font-size: 1rem;
   cursor: pointer;
