@@ -4,61 +4,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Katik - Kalkulator Matematik</title>
-
-    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <header>
-      <h1>Katik</h1>
-      <p>Kalkulator Matematika</p>
-    </header>
-  
-    <main>
-      <section class="intro">
-        <h2>Welcome to Katik</h2>
-        <p>Hai Sobat, Selamat datang di Katik :)<br>
-          Sebuah web apps sederhana yang berfungsi untuk menghitung nilai luas dan keliling bangun datar
-        </p>
-      </section>
-  
-      <nav class="nav-tabs">
-        <button class="active">Luas Persegi</button>
-        <button>Keliling Persegi</button>
-      </nav>
-  
-      <section class="calculator active">
-        <div class="card">
-          <h3>Luas Persegi</h3>
-          <form id="luasForm">
-            <label for="sisiLuas">Nilai Sisi:</label>
-            <input type="number" id="sisiLuas" name="sisiLuas" required min="0">
-            <button type="submit">Hitung</button>
-            <button type="button" onclick="resetForm('luasForm')" class="reset">Reset</button>
-            <div id="hasilLuas" class="hasil"></div>
-          </form>
-        </div>
-      </section>
-  
-      <section class="calculator">
-        <div class="card">
-          <h3>Keliling Persegi</h3>
-          <form id="kelilingForm">
-            <label for="sisiKeliling">Nilai Sisi:</label>
-            <input type="number" id="sisiKeliling" name="sisiKeliling" required min="0">
-            <button type="submit">Hitung</button>
-            <button type="button" onclick="resetForm('kelilingForm')" class="reset">Reset</button>
-            <div id="hasilKeliling" class="hasil"></div>
-          </form>
-        </div>
-      </section>
-    </main>
-  
-    <footer>
-      <p>&copy; 2025 Katik by Anggiyop</p>
-    </footer>
-  
-    <!-- JavaScript -->
+<body class="collapsed">
+    <div class="sidebar" id="sidebar">
+        <button class="toggle-btn" id="toggleSidebar">☰</button>
+        <ul>
+            <li><button class="nav-link active" data-target="0">Luas Persegi</button></li>
+            <li><button class="nav-link" data-target="1">Keliling Persegi</button></li>
+            <li><button id="themeToggle">🌙/☀️</button></li>
+        </ul>
+    </div>
+
+    <div class="layout">
+        <header>
+            <h1>Katik</h1>
+            <p>Kalkulator Matematik</p>
+        </header>
+        <main>
+            <section class="welcome-message">
+                <h1>Welcome to Katik</h1>
+                <p>Hai Sobat, Selamat datang di Katik :)<br>Sebuah web apps sederhana yang berfungsi untuk menghitung nilai luas dan keliling bangun datar</p>
+            </section>
+
+            <nav class="nav-tabs">
+                <button class="active">Luas Persegi</button>
+                <button>Keliling Persegi</button>
+                <button>Luas Persegi Panjang</button>
+                <button>Keliling Persegi Panjang</button>
+            </nav>
+
+            <section class="calculator active">
+                <div class="card">
+                    <h3>Luas Persegi</h3>
+                    <div class="card-body">
+                        <div class="left">
+                            <img src="image/persegi.png" alt="Persegi" class="img-fluid">
+                            <p>Rumus luas persegi:<br>
+                                <b>L = S x S</b><br>
+                                Di mana:<br>
+                                L = Luas<br>
+                                S = Sisi
+                            </p>
+                        </div>
+                        <form id="luasPersegi" class="right">
+                            <label for="sisiLuasP">Nilai Sisi:</label>
+                            <input type="number" id="sisiLuasP" name="sisiLuasP" required min="0">
+                            <button type="submit">Hitung</button>
+                            <button type="button" onclick="resetForm('luasPersegi')" class="reset">Reset</button>
+                            <div class="hasil" id="hasilLuasP"></div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section class="calculator">
+                <div class="card">
+                    <h3>Keliling Persegi</h3>
+                    <div class="card-body">
+                        <div class="left">
+                            <img src="image/persegi.png" alt="Persegi" class="img-fluid">
+                            <p>Rumus keliling persegi:<br>
+                                <b>K = 4 x S</b><br>
+                                Di mana:<br>
+                                K = Keliling<br>
+                                S = Sisi
+                            </p>
+                        </div>
+                        <form id="kelilingPersegi" class="right">
+                            <label for="sisiKelilingP">Nilai Sisi:</label>
+                            <input type="number" id="sisiKelilingP" name="sisiKelilingP" required min="0">
+                            <button type="submit">Hitung</button>
+                            <button type="button" onclick="resetForm('kelilingPersegi')" class="reset">Reset</button>
+                            <div class="hasil" id="hasilKelilingP"></div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section class="calculator">
+                <div class="card">
+                    <h3>Luas Persegi Panjang</h3>
+                    <div class="card-body">
+                        <div class="left">
+                            <img src="image/persegi-panjang.jpg" alt="Persegi-Panjang" class="img-fluid">
+                            <p>Rumus luas persegi panjang:<br>
+                                <b>L = p x l</b><br>
+                                Di mana:<br>
+                                L = Luas<br>
+                                p = Panjang<br>
+                                l = Lebar
+                            </p>
+                        </div>
+                        <form id="luasPersegiP" class="right">
+                            <div class="flex">
+                                <div class="flex-column">
+                                    <label for="panjangLuasPP">Nilai Panjang:</label>
+                                    <input type="number" id="panjangLuasPP" name="panjangLuasPP" required min="0">
+                                </div>
+                                <div class="flex-column">
+                                    <label for="lebarLuasPP">Nilai Lebar:</label>
+                                    <input type="number" id="lebarLuasPP" name="lebarLuasPP" required min="0">
+                                </div>
+                            </div>
+                            <button type="submit">Hitung</button>
+                            <button type="button" onclick="resetForm('luasPersegiP')" class="reset">Reset</button>
+                            <div class="hasil" id="hasilLuasPP"></div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <section class="calculator">
+                <div class="card">
+                    <h3>Luas Persegi Panjang</h3>
+                    <div class="card-body">
+                        <div class="left">
+                            <img src="image/persegi-panjang.jpg" alt="Persegi-Panjang" class="img-fluid">
+                            <p>Rumus keliling persegi panjang:<br>
+                                <b>K = 2 x ( p + l )</b><br>
+                                Di mana:<br>
+                                p = Panjang<br>
+                                l = Lebar
+                            </p>
+                        </div>
+                        <form id="kelilingPersegiP" class="right">
+                            <div class="flex">
+                                <div class="flex-column">
+                                    <label for="panjangKelilingPP">Nilai Panjang:</label>
+                                    <input type="number" id="panjangKelilingPP" name="panjangKelilingPP" required min="0">
+                                </div>
+                                <div class="flex-column">
+                                    <label for="lebarKelilingPP">Nilai Lebar:</label>
+                                    <input type="number" id="lebarKelilingPP" name="lebarKelilingPP" required min="0">
+                                </div>
+                            </div>
+                            <button type="submit">Hitung</button>
+                            <button type="button" onclick="resetForm('kelilingPersegiP')" class="reset">Reset</button>
+                            <div class="hasil" id="hasilKelilingPP"></div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Katik by Anggi Yohanes Pardede</p>
+        </footer>
+    </div>
+
     <script src="js/script.js"></script>
-  </body>  
+</body>
 </html>
